@@ -1,8 +1,18 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Icon from "@/components/ui/icon";
+import { Badge } from "@/components/ui/badge";
+import { useState, useEffect } from "react";
 
 const Index = () => {
+  const [viewCount, setViewCount] = useState(0);
+
+  useEffect(() => {
+    const storedCount = localStorage.getItem('viewCount');
+    const currentCount = storedCount ? parseInt(storedCount) + 1 : 1247;
+    setViewCount(currentCount);
+    localStorage.setItem('viewCount', currentCount.toString());
+  }, []);
   return (
     <div className="min-h-screen bg-background">
       <header className="border-b">
@@ -26,14 +36,22 @@ const Index = () => {
               <p className="text-xl text-muted-foreground">
                 Мощный процессор Intel Core i5, видеокарта RTX 2050 и 16GB оперативной памяти — всё для комфортной игры и работы
               </p>
+              <div className="flex items-center gap-2">
+                <Icon name="Eye" className="text-muted-foreground" size={20} />
+                <span className="text-sm text-muted-foreground">
+                  Просмотров: <span className="font-semibold text-foreground">{viewCount.toLocaleString('ru-RU')}</span>
+                </span>
+              </div>
               <div className="flex flex-wrap gap-4">
                 <Button size="lg" className="bg-accent hover:bg-accent/90">
                   <a href="https://market.yandex.ru/cc/8e9YXC" target="_blank" rel="noopener noreferrer">
                     Купить на Яндекс.Маркете
                   </a>
                 </Button>
-                <Button size="lg" variant="outline">
-                  Узнать подробнее
+                <Button size="lg" variant="outline" asChild>
+                  <a href="#description">
+                    Узнать подробнее
+                  </a>
                 </Button>
               </div>
             </div>
