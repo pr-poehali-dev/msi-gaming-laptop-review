@@ -201,7 +201,11 @@ const Index = () => {
                     Консультация специалиста
                   </li>
                 </ul>
-                <Button className="w-full">Купить сейчас</Button>
+                <Button className="w-full" asChild>
+                  <a href="https://market.yandex.ru/cc/8e9YXC" target="_blank" rel="noopener noreferrer">
+                    Купить сейчас
+                  </a>
+                </Button>
               </CardContent>
             </Card>
 
