@@ -232,7 +232,11 @@ const Index = () => {
                     0% переплаты
                   </li>
                 </ul>
-                <Button className="w-full bg-accent hover:bg-accent/90">Оформить рассрочку</Button>
+                <Button className="w-full bg-accent hover:bg-accent/90" asChild>
+                  <a href="https://market.yandex.ru/cc/8e9eg5" target="_blank" rel="noopener noreferrer">
+                    Оформить рассрочку
+                  </a>
+                </Button>
               </CardContent>
             </Card>
 
@@ -260,7 +264,11 @@ const Index = () => {
                     Одобрение за 5 минут
                   </li>
                 </ul>
-                <Button className="w-full" variant="outline">Оформить рассрочку</Button>
+                <Button className="w-full" variant="outline" asChild>
+                  <a href="https://market.yandex.ru/cc/8e9eg5" target="_blank" rel="noopener noreferrer">
+                    Оформить рассрочку
+                  </a>
+                </Button>
               </CardContent>
             </Card>
           </div>
